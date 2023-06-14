@@ -47,6 +47,8 @@ plot(Age)
 # In the formula to calculate the Z-score we need to have a variable called X which is the value given.Since there is
 # Value given i calculated the z-score with x as being every age in the data set. I used a loop to iterate through 
 # the 65 ages and added that to my formula. 
+
+print('Z-score: ')
 i <- 1
 while (i < 65){
   
@@ -56,9 +58,32 @@ x<-Age[i]
 
 Z_Score<-(x-mu)/stdev
 
-print(Z_Score)
+ print(Z_Score)
 i <- i + 1
 }
 
+#Question 1.H) Normalization on the age of properties based on the abs sd.
+print('Z-score with abs sd: ')
+n<-65
+mu<-mean(Age)
 
+sd1<-0.00
+
+i <- 1
+while (i < 65){
+  
+  mu<-mean(Age)
+  stdev<-sd(Age)
+  x<-Age[i]
+  
+  Z_Score<-(x-mu)/stdev
+  
+  sd1=(Z_Score-mu)
+  i <- i + 1
+  Sa<-sum(sd1)
+  sas<-1/n
+  sasd<-sas*Sa
+  asd<-(x-mu)/sasd
+  print(asd)
+}
 
